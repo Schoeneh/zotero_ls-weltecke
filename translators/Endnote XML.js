@@ -280,7 +280,9 @@ var fieldMap = {
 	"tertiary-title": {
 		legislativeBody: ["hearing", "bill"],
 		series: ["bookSection", "conferencePaper"],
-		seriesTitle: ["audioRecording"]
+		seriesTitle: ["audioRecording", "journalArticle"],
+		extra: ["book", "thesis"],
+
 	},
 	//NOT HANDLED: reviewedAuthor, scriptwriter, contributor, guest
 	"authors": {
@@ -310,7 +312,8 @@ var fieldMap = {
 		"cosponsor": ["bill"],
 		"producer": ["film", "tvBroadcast", "videoRecording", "radioBroadcast"],
 		"editor": ["book"],
-		"seriesEditor": ["bookSection", "conferencePaper", "dictionaryEntry", "encyclopediaArticle", "map"]
+		"seriesEditor": ["bookSection", "conferencePaper", "dictionaryEntry", "encyclopediaArticle", "map"],
+		"contributor": ["journalArticle", "thesis"]
 	},
 	"subsidiary-authors": {
 		"__default": "translator",
@@ -327,7 +330,8 @@ var fieldMap = {
 		"mapType": ["map"],
 		"presentationType": ["presentation"],
 		"reportType": ["report"],
-		"thesisType": ["thesis"]
+		"thesisType": ["thesis"],
+		extra: ["book"]
 	},
 	custom1: {
 		filingDate: ["patent"], //not in spec
@@ -360,7 +364,8 @@ var fieldMap = {
 
 	"pub-location": {
 		"__default": "place",
-		"__exclude": ["conferencePaper"] //exported/imported as "custom1"
+		"__exclude": ["conferencePaper"], //exported/imported as "custom1"
+		extra: ["journalArticle", "document"]
 	},
 	"pub-dates": { //also see year when editing
 		"__default": "date",
@@ -403,7 +408,7 @@ var fieldMap = {
 	},
 	"num-vols": {
 		"__default": "numberOfVolumes",
-		"__exclude": ["bookSection"] //uses "issue" instead
+		//"__exclude": ["bookSection"] //uses "issue" instead
 	},
 	"orig-pub": {
 		history: ["hearing", "statute", "bill", "case"],
@@ -429,13 +434,16 @@ var fieldMap = {
 	},
 	section: {
 		"__default": "section", //though this can refer to pages, start page, etc. for some types. Zotero does not support any of those combinations, however.
-		"__exclude": ["case"]
+		"__exclude": ["case"],
+		numPages: ["book"],
+		volume: ["journalArticle"]
 	},
 	isbn: {
 		"__default": "ISBN",
 		ISSN: ["journalArticle", "magazineArticle", "newspaperArticle"],
 		patentNumber: ["patent"],
 		reportNumber: ["report"],
+		extra: ["thesis", "document"]
 	},
 	pages: {
 		"__default": "pages",
@@ -448,7 +456,8 @@ var fieldMap = {
 		seriesNumber: ["bookSection", "book"],
 		issue: ["journalArticle", "magazineArticle"],
 		docketNumber: ["case"],
-		artworkSize: ["artwork"]
+		artworkSize: ["artwork"],
+		accessDate: ["webpage"]
 	},
 	volume: {
 		"__default": "volume",
@@ -456,6 +465,9 @@ var fieldMap = {
 		codeVolume: ["bill"],
 		reporterVolume: ["case"],
 		"__exclude": ["patent", "webpage"]
+	},
+	"remote-database-provider": {
+		archive: ["book", "bookSection", "journalArticle", "thesis"]
 	}
 };
 
