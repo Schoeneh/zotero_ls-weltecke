@@ -645,6 +645,9 @@ function importNext(records, index, resolve, reject) {
 						var subnode = node.children[k];
 						newItem.tags.push(subnode.textContent.trim())
 					}
+				} else if (field == "custom6") {
+					newItem.tags.push(node.textContent)
+
 				} else if (field == "urls") {
 	
 					for (var k = 0; k < node.children.length; k++) {
