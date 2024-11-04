@@ -1,0 +1,13 @@
+*.sqlite
+*.sqlite-journal
+*.sqlite.bak
+*.sqlite.1.bak
+*.old
+*.tmp
+*ft-info
+*cache
+*.pdf
+*pdf-state
+*.html
+*.rdf
+*.log
